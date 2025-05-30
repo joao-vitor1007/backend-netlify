@@ -1,7 +1,7 @@
 from flask import Flask, request, redirect
 import os
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 @app.route('/login', methods=['POST'])
 def handle_login():
