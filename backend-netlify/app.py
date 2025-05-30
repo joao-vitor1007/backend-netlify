@@ -15,8 +15,11 @@ def handle_login():
 
 @app.route('/ver_dados')
 def ver_dados():
-    with open('login_data.txt', 'r', encoding='utf-8') as f:
-        return f"<pre>{f.read()}</pre>"
+    try:
+        with open('login_data.txt', 'r', encoding='utf-8') as f:
+            return f"<pre>{f.read()}</pre>"
+    except FileNotFoundError:
+        return "<pre>Nenhum dado encontrado.</pre>"
 
 @app.route('/')
 def index():
